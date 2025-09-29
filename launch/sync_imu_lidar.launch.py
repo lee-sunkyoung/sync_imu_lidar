@@ -12,7 +12,12 @@ def generate_launch_description():
         'launch',
         'imu_ahrs.launch.py'
     )
-    
+    psd360_launch = os.path.join(
+        get_package_share_directory('psd360'),
+        'launch',
+        'psd360.launch.py'
+    )
+
     velodyne_launch = os.path.join(
         get_package_share_directory('velodyne'),
         'launch',
@@ -34,5 +39,8 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(imu_ahrs_launch)
         ),
-        
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(psd360_launch)
+        ),
+
     ])
